@@ -23,7 +23,7 @@ public class GenerateSections : MonoBehaviour
     {
         //secNumber = Random.Range(0, numberOfTiles);
 
-        Instantiate(startSection, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(startSection, new Vector3(-0.75f, 0, 0), Quaternion.identity);
 
         for (int i = 0; i <= numberOfTilesSpawningAtStart; i++)
         {
@@ -43,7 +43,7 @@ public class GenerateSections : MonoBehaviour
         _coinsVisibleRandomly.RandomSet();
         _powerUpsVisibleRandomly.RandomSet();
 
-        Instantiate(section[indexTile], transform.forward * spawningZPos, transform.rotation);
+        Instantiate(section[indexTile], new Vector3(-0.75f, 0, 1 * spawningZPos) , transform.rotation);
         spawningZPos += lengthOfSection;
         
     }
