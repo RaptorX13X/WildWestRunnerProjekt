@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GenerateSections : MonoBehaviour
 {
+    [SerializeField] private ObjectsVisibleRandomly _obstaclesVisibleRandomly;
+    [SerializeField] private ObjectsVisibleRandomly _coinsVisibleRandomly;
+    [SerializeField] private ObjectsVisibleRandomly _powerUpsVisibleRandomly;
+
     //public GameObject player;
     [SerializeField] private GameObject startSection;
     [SerializeField] private GameObject[] section;
@@ -15,7 +19,7 @@ public class GenerateSections : MonoBehaviour
 
 
 
-    private void Start()
+    public void Awake()
     {
         //secNumber = Random.Range(0, numberOfTiles);
 
@@ -26,7 +30,7 @@ public class GenerateSections : MonoBehaviour
 
 
             SpawnTile(Random.Range(0, section.Length));
-
+            
         }
 
 
@@ -35,9 +39,13 @@ public class GenerateSections : MonoBehaviour
 
     public void SpawnTile(int indexTile)
     {
+        _obstaclesVisibleRandomly.RandomSet();
+        _coinsVisibleRandomly.RandomSet();
+        _powerUpsVisibleRandomly.RandomSet();
 
         Instantiate(section[indexTile], transform.forward * spawningZPos, transform.rotation);
         spawningZPos += lengthOfSection;
+        
     }
 
 
