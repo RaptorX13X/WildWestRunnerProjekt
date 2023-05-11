@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
@@ -8,6 +10,7 @@ public class HealthController : MonoBehaviour
     public int playerHealth = 3;
     [SerializeField] private Image[] hearts;
     [SerializeField] private DamageController _damageController;
+    [SerializeField] private PlayerScore _playerScore;
 
     private void Start()
     {
@@ -16,7 +19,7 @@ public class HealthController : MonoBehaviour
 
     public void UpdateHealth()
     {
-        if (playerHealth <= 0) // Kiedy postaæ straci wszystkie ¿ycia.
+        if (playerHealth <= 0) // Kiedy postaï¿½ straci wszystkie ï¿½ycia.
         {
             //Restart the game
             //or
@@ -42,6 +45,20 @@ public class HealthController : MonoBehaviour
                     hearts[i].color = Color.black;
                 }
             }
+        }
+    }
+
+    public void AddHealth()
+    {
+        if (playerHealth < 3)
+        {
+            playerHealth += 1;
+            UpdateHealth();
+        }
+        else
+        {
+            _playerScore.score += 5;
+            Debug.Log(_playerScore.score);
         }
     }
 }
