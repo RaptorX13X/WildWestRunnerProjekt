@@ -8,9 +8,12 @@ public class HealthController : MonoBehaviour
     public int playerHealth = 3;
     [SerializeField] private Image[] hearts;
     [SerializeField] private DamageController _damageController;
+    [SerializeField] private RestartController _restartController;
+
 
     private void Start()
     {
+        
         UpdateHealth();
     }
 
@@ -24,7 +27,10 @@ public class HealthController : MonoBehaviour
 
             //this.gameObject.GetComponent<skryptdosterowania>.enabled = false;
 
-            Time.timeScale = 0; // Freeze gry
+            //Time.timeScale = 0; // Freeze gry
+
+            _restartController.Pause();
+            GetComponent<PlayerController>().enabled = false;
 
             Debug.Log("GAME OVER");
         }
