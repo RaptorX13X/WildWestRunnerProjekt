@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float laneDistance = 4; //the distance between two lanes
 
     public float jumpForce;
+    public float downForce;
     public float Gravity = -20;
 
     [SerializeField] private Rigidbody rb;
@@ -38,6 +39,14 @@ public class PlayerController : MonoBehaviour
 
 
         }
+
+
+        if (Input.GetKeyDown(KeyCode.DownArrow) && jumpCounting > 0)
+        {
+            jumpCounting--;
+            rb.AddForce(Vector3.down * downForce, ForceMode.Impulse);
+        }
+
 
         //Gather the inputs on which lane we should be
 

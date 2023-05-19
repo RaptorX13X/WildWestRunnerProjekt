@@ -11,12 +11,13 @@ public class DamageController : MonoBehaviour
 
     private void Start()
     {
-
+        
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DamageTrigger")) // Trzeba ustawiæ tagi w Edytorze!!!
         {
+
             Damage();
             _invulnerability.SetInvulnerability();
             Debug.Log("DAMAGE!");
