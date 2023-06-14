@@ -7,10 +7,10 @@ using TMPro;
 public class ScoreUI : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-
+    [SerializeField] private GameObject distanceCount;
     public GameObject counter;
 
-    
+
     void Start()
     {
         
@@ -20,5 +20,7 @@ public class ScoreUI : MonoBehaviour
     void Update()
     {
         counter.GetComponent<TextMeshProUGUI>().text = "SCORE " + player.GetComponent<PlayerScore>().score.ToString();
+        distanceCount.GetComponent<TextMeshProUGUI>().text =
+            "DISTANCE " + player.GetComponent<DistanceCounter>().distance.ToString("##.") + "m";
     }
 }
