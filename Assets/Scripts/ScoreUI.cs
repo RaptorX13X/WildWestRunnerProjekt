@@ -11,6 +11,7 @@ public class ScoreUI : MonoBehaviour
     public GameObject counter;
 
 
+
     void Start()
     {
         

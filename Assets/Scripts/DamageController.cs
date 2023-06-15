@@ -22,8 +22,6 @@ public class DamageController : MonoBehaviour
             _invulnerability.SetInvulnerability();
             Debug.Log("DAMAGE!");
 
-
-
         }
     }
 

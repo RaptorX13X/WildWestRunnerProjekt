@@ -15,7 +15,7 @@ public class GenerateSections : MonoBehaviour
     [SerializeField] private int lengthOfSection = 32;
     //[SerializeField] private bool isSpawning = false;
     //[SerializeField] private int secNumber;
-    public int numberOfTilesSpawningAtStart = 5;
+    public int numberOfTilesSpawningAtStart = 15;
 
 
 
