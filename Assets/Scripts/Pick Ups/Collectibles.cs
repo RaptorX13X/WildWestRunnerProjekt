@@ -7,7 +7,7 @@ public class Collectibles : MonoBehaviour
 {
     [SerializeField] private GameObject collectible;
     [SerializeField] private GameObject player;
-    
+    [SerializeField] private AudioSource collectSound;
 
     private void Start()
     {
@@ -17,6 +17,7 @@ public class Collectibles : MonoBehaviour
     public void Collect()
     {
         collectible.SetActive(false);
+        collectSound.Play();
     }
 
     public void AddPoints()
