@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     [SerializeField] private int jumpCounting;
+
+    public bool isJumping = false;
+
     void Start()
     {
         //controller = GetComponent<CharacterController>();
@@ -29,13 +32,14 @@ public class PlayerController : MonoBehaviour
     {
         //direction.z = forwardSpeed;
 
-        transform.position += transform.forward * forwardSpeed * Time.deltaTime;
+        Vector3 move = transform.position += transform.forward * forwardSpeed * Time.deltaTime;
 
         //direction.y += Gravity * Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCounting < 1)
         {
             jumpCounting++;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isJumping = true;
 
 
         }
@@ -71,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
+       
     }
 
     private void ChangeLine()
@@ -107,9 +112,13 @@ public class PlayerController : MonoBehaviour
         {
             jumpCounting = 0;
             Debug.Log("ground");
+            isJumping= false;
         }
     }
 
-
+    public bool IsJumping() // Dziêki tej metodzie mogê odwo³aæ siê do PlayerAnimator.cs.
+    {
+        return isJumping; // Metoda zwraca wynik isWalking.
+    }
 }
 
