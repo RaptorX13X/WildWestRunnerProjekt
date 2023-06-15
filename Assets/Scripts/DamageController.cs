@@ -7,7 +7,7 @@ public class DamageController : MonoBehaviour
     [SerializeField] private int damage = 1;
     [SerializeField] private HealthController _healthController;
     [SerializeField] private Invulnerability _invulnerability;
-
+    [SerializeField] private AudioSource hitSound;
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public class DamageController : MonoBehaviour
             Damage();
             _invulnerability.SetInvulnerability();
             Debug.Log("DAMAGE!");
-
+            hitSound.Play();
         }
     }
 
