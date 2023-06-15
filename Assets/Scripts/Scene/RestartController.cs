@@ -27,7 +27,8 @@ public class RestartController : MonoBehaviour
 
     public void MainMenu()
     {
-        //SceneManager.LoadScene(0); // Jak bedzie zrobione Main Menu
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0); 
     }
 
 
