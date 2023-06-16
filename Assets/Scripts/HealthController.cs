@@ -9,6 +9,7 @@ public class HealthController : MonoBehaviour
 {
     public int playerHealth = 3;
     [SerializeField] private Image[] hearts;
+
     [SerializeField] private DamageController _damageController;
     [SerializeField] private PlayerScore _playerScore;
     [SerializeField] private RestartController _restartController;
@@ -22,20 +23,12 @@ public class HealthController : MonoBehaviour
 
     public void UpdateHealth()
     {
-        if (playerHealth <= 0) // Kiedy posta� straci wszystkie �ycia.
+        if (playerHealth <= 0) 
         {
-            //Restart the game
-            //or
-            //Freeze the game etc
-
-            //this.gameObject.GetComponent<skryptdosterowania>.enabled = false;
-
-            //Time.timeScale = 0; // Freeze gry
 
             _restartController.Pause();
             GetComponent<PlayerController>().enabled = false;
 
-            Debug.Log("GAME OVER");
         }
 
 
@@ -64,7 +57,6 @@ public class HealthController : MonoBehaviour
         else
         {
             _playerScore.score += 5;
-            Debug.Log(_playerScore.score);
         }
     }
 }

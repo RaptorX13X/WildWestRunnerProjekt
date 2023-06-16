@@ -9,13 +9,13 @@ public class DistanceCounter : MonoBehaviour
     private float startingPos;
     private float currentPos;
     public float distance;
-    // Start is called before the first frame update
+    
     void Start()
     {
         startingPos = player.transform.position.z;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         currentPos = player.transform.position.z;

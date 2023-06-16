@@ -4,37 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //private CharacterController controller;
+
     private Vector3 direction;
-    public float forwardSpeed;
+    [SerializeField] public float forwardSpeed;
 
-    private int desiredLane = 1; //0:left 1:middle 2:right
-    public float laneDistance = 4; //the distance between two lanes
+    private int desiredLane = 1;
+    [SerializeField] private float laneDistance = 1.5f; 
 
-    public float jumpForce;
-    public float downForce;
-    public float Gravity = -20;
+    [SerializeField] private float jumpForce = 30;
+    [SerializeField] private float downForce = 60;
 
-    [SerializeField] private Rigidbody rb;
+    private Rigidbody rb;
 
-    [SerializeField] private int jumpCounting;
+    private int jumpCounting;
 
-    public bool isJumping = false;
+    private bool isJumping = false;
 
     void Start()
     {
-        //controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        //direction.z = forwardSpeed;
+
 
         Vector3 move = transform.position += transform.forward * forwardSpeed * Time.deltaTime;
 
-        //direction.y += Gravity * Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCounting < 1)
         {
             jumpCounting++;
@@ -52,13 +50,14 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        //Gather the inputs on which lane we should be
+
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             desiredLane++;
             if (desiredLane == 3)
                 desiredLane = 2;
+
             ChangeLine();
 
         }
@@ -71,7 +70,6 @@ public class PlayerController : MonoBehaviour
 
             ChangeLine();
 
-            //Calculate where we should be in the future
 
         }
 
@@ -91,34 +89,25 @@ public class PlayerController : MonoBehaviour
             targetPosition += Vector3.right * laneDistance;
         }
 
-        //controller.enabled = false;
+
         transform.position = targetPosition;
-        //controller.enabled = true;
+
     }
 
-    //private void FixedUpdate()
-    //{
-    //    controller.Move(direction * Time.fixedDeltaTime);
-    //}
 
-    //private void Jump()
-    //{
-    //    direction.y = jumpForce;
-    //}
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             jumpCounting = 0;
-            Debug.Log("ground");
             isJumping= false;
         }
     }
 
-    public bool IsJumping() // Dziêki tej metodzie mogê odwo³aæ siê do PlayerAnimator.cs.
+    public bool IsJumping() 
     {
-        return isJumping; // Metoda zwraca wynik isWalking.
+        return isJumping; 
     }
 }
 

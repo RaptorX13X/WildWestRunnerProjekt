@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(1); // Jak bedzie zrobione Main Menu
+        SceneManager.LoadScene(1);
     }
 
     public void HowToPlay()

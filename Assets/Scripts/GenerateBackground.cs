@@ -6,22 +6,23 @@ public class GenerateBackground : MonoBehaviour
 {
     
     [SerializeField] private GameObject background;
-    [SerializeField] private int spawningZPos = 32;
-    [SerializeField] private int lengthOfSection = 32;
-    //[SerializeField] private bool isSpawning = false;
-    //[SerializeField] private int secNumber;
-    public int numberOfTilesSpawningAtStart = 5;
+    [SerializeField] private int spawningZPos = 260;
+    [SerializeField] private int lengthOfSection = 260;
+  
+    private float offsetX = -19.1f;
+    private float offsetY = -6.5f;
 
 
 
-    
+
+
 
 
     public void SpawnBackground()
     {
        
 
-        Instantiate(background, new Vector3(-19.1f, -6.5f, 1 * spawningZPos), transform.rotation);
+        Instantiate(background, new Vector3(offsetX, offsetY, 1 * spawningZPos), transform.rotation);
         spawningZPos += lengthOfSection;
 
     }
@@ -33,9 +34,7 @@ public class GenerateBackground : MonoBehaviour
         {
 
             SpawnBackground();
-            //spawningZPos -= lengthOfSection;
-
-            
+ 
         }
 
     }

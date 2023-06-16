@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public bool isPaused;
-    // Start is called before the first frame update
+    [SerializeField] private GameObject pauseMenu;
+    private bool isPaused;
+
     void Start()
     {
         pauseMenu.SetActive(false);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
