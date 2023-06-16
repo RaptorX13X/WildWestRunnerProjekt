@@ -9,18 +9,15 @@ public class DamageController : MonoBehaviour
     [SerializeField] private Invulnerability _invulnerability;
     [SerializeField] private AudioSource hitSound;
 
-    private void Start()
-    {
-        
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("DamageTrigger")) // Trzeba ustawiæ tagi w Edytorze!!!
+        if (other.CompareTag("DamageTrigger"))
         {
 
             Damage();
             _invulnerability.SetInvulnerability();
-            Debug.Log("DAMAGE!");
+    
             hitSound.Play();
         }
     }

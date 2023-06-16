@@ -8,22 +8,20 @@ public class GenerateSections : MonoBehaviour
     [SerializeField] private ObjectsVisibleRandomly _coinsVisibleRandomly;
     [SerializeField] private ObjectsVisibleRandomly _powerUpsVisibleRandomly;
 
-    //public GameObject player;
     [SerializeField] private GameObject startSection;
     [SerializeField] private GameObject[] section;
     [SerializeField] private int spawningZPos = 32;
     [SerializeField] private int lengthOfSection = 32;
-    //[SerializeField] private bool isSpawning = false;
-    //[SerializeField] private int secNumber;
     public int numberOfTilesSpawningAtStart = 15;
+
+    private float offsetX = -0.75f;
 
 
 
     public void Awake()
     {
-        //secNumber = Random.Range(0, numberOfTiles);
 
-        Instantiate(startSection, new Vector3(-0.75f, 0, 0), Quaternion.identity);
+        Instantiate(startSection, new Vector3(offsetX, 0, 0), Quaternion.identity);
 
         for (int i = 0; i <= numberOfTilesSpawningAtStart; i++)
         {
@@ -55,9 +53,7 @@ public class GenerateSections : MonoBehaviour
         {
 
             SpawnTile(Random.Range(0, section.Length));
-            //spawningZPos -= lengthOfSection;
 
-            Debug.Log("EnterTrigger - Instantiate Next Segment");
         }
 
     }

@@ -8,16 +8,12 @@ public class ScoreUI : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject distanceCount;
-    public GameObject counter;
+    [SerializeField] private GameObject counter;
 
 
 
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+
     void Update()
     {
         counter.GetComponent<TextMeshProUGUI>().text = "SCORE " + player.GetComponent<PlayerScore>().score.ToString();
